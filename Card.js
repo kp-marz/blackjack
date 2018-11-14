@@ -3,7 +3,7 @@ var Card = function(value, suit, color, deck) {
     this.value = value;
     this.suit  = suit;
     this.color = color;
-    this.deck  = deck;
+    this.deck  = deck;      // parent
 
     /*
     this.color = function() {

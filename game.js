@@ -1,4 +1,6 @@
-var Deck = require('./Deck.js');
+//var Deck = require('./Deck.js');
+//var Cards = require('./Deck.js');       // test only - remove!
+var deckModule = require('./Deck.js');
 
 // The Duck Tales guys are going to the casino and they want to simulate 20 games of black jack.
 // Each player starts with 200 dollars.  Each game is $15.
@@ -25,7 +27,8 @@ var config = {
 */
 
 Game = function() {
-    this.deck = new Deck();
+    this.deck = new deckModule.Deck();
+    this.cards = new deckModule.Cards(this.deck);
 };
 
 var game = new Game();
@@ -33,5 +36,9 @@ var game = new Game();
 
 //console.log(game.deck.cards);
 //console.log(game.deck.card(0));
-console.log(game.deck.cardValue(0));
+//console.log(game.deck.cardValue(0));
 
+console.log("deck size: " + game.deck.size());
+console.log("cards size: " + game.cards.size());
+
+//console.log(deckModule);

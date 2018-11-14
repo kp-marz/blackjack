@@ -47,4 +47,9 @@ var Deck = function() {
     };
 };
 
-module.exports = Deck;
+//module.exports = Deck, Cards;       // test only - remove!
+module.exports = {
+    Deck : Deck,       // test only - remove!
+    Cards : Cards
+}
+
