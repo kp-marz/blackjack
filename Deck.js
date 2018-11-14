@@ -3,9 +3,10 @@ var Card = require('./Card.js');
 const suits  = ['diamonds','hearts','clubs','spades'];
 const values = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
 
-var Cards = function() {
-    var self = this;
+var Cards = function(deck) {
+    this.deck = deck;
     this.cards = [];
+    var self = this;
     suits.forEach(function(suit) {
         values.forEach(function(value) {
             var color;
@@ -14,9 +15,10 @@ var Cards = function() {
             } else {
                 color = 'red';
             }
-            self.cards.push(new Card(value, color, suit));
+            self.cards.push(new Card(value, suit, color, self.deck));
         });
     });
+
     this.size = function() {
         return this.cards.length;
     };
@@ -26,8 +28,8 @@ var Cards = function() {
 };
 
 
-function Deck() {
-    this.cards = new Cards();       // Deck has Cards
+var Deck = function() {
+    this.cards = new Cards(this);       // Deck has Cards
 
     this.size = function() {
         return this.cards.size();
@@ -39,6 +41,9 @@ function Deck() {
 
     this.card = function(idx) {
         return this.cards.card(idx);
+    };
+    this.cardValue = function(idx) {
+        return this.cards.card(idx).value;
     };
 };
 
