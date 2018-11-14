@@ -1,4 +1,4 @@
-function Card(value, suit, color) {
+var Card = function(value, suit, color) {
     this.value = value;
     this.suit = suit;
     this.color = color;

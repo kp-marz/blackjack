@@ -31,5 +31,6 @@ Game = function() {
 var game = new Game();
 
 
-console.log(game.deck);
+console.log(game.deck.cards);
+//console.log(game.deck.card(0));
 
