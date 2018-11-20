@@ -25,10 +25,27 @@ var Game = function(id) {
     this.createGameObjects = function() {
         this.deck = new MultiDeck();
         this.deck.createDecks(config.numDecks);
+        log("createGameObjects OK");
+    };
+
+    this.playSingleRound = function() {
+        log("playSingleRound OK");
+    };
+
+    this.showFinalStats = function() {
+        log("showFinalStats OK");
     };
 
     this.run = function() {
+        log("Running " + this.id);
+        log("");
+
         this.createGameObjects();
+        this.playSingleRound();
+        this.showFinalStats();
+        
+        log("");
+        log(this.id + " completed.");
     };
 
 };
@@ -36,10 +53,11 @@ var Game = function(id) {
 var game = new Game("Blackjack Simulator Game");
 game.run();
 
+/*
 log("");
 log("created: " + game);
 log("id: "   + game.id);
 log("deck: " + game.deck);
 log("cardCount: " + game.deck.cardCount());
 log("");
-
+*/
