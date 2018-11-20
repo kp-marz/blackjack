@@ -29,6 +29,10 @@ var MultiDeck = function() {
         return this.cards.length;
     };
     
+    this.dealCard = function() {
+        return this.cards.pop();
+    };
+    
     // Durstenfeld algorithm - shuffle any array in place
     this.shuffle = function() {
         var i, j, temp;
