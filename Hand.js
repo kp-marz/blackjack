@@ -18,6 +18,24 @@ var Hand = function() {
         return this.cards.push(card);
     };
     
+    this.showCards = function() {
+        var s = "";
+        for (var i = 0; i < this.cardCount(); i++) {
+            var card = this.card(i);
+            s += card.faceValue().padEnd(6);
+        }
+        return s;
+    };
+    
+    this.totalPoints = function() {
+        var total = 0;
+        for (var i = 0; i < this.cardCount(); i++) {
+            var card = this.card(i);
+            total += card.pointValue();
+        }
+        return total;
+    };
+    
     this.clear = function() {
         this.cards = [];        // garbage collection
     };
