@@ -42,3 +42,4 @@ log("id: "   + game.id);
 log("deck: " + game.deck);
 log("cardCount: " + game.deck.cardCount());
 log("");
+
