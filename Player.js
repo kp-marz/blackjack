@@ -18,6 +18,12 @@ var Player = function(name) {
         this.losses = 0;
     };
 
+    this.hit = function() {
+    };
+
+    this.stay = function() {
+    };
+
 };
 
 

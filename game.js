@@ -2,6 +2,7 @@
 
 var MultiDeck = require('./MultiDeck.js');
 var Dealer    = require('./Dealer.js');
+var Players   = require('./Players.js');
 var Player    = require('./Player.js');
 
 
@@ -41,10 +42,16 @@ var Game = function(id) {
         this.dealer = new Dealer("Scrooge", this.deck);
         log("created Game dealer");
 
-        // create one Player (for now)
-        this.player1 = new Player("Huey");
-        this.player1.init(config.startCash);
-        log("created Game player1");
+        this.players = new Players();
+        log("created Game Players - empty");
+        log("");
+
+        // create one Player (for now) and add to Players
+        var player = new Player("Huey");
+        player.init(config.startCash);
+        this.players.addPlayer(player);
+        log("created player and added to Players");
+        log("number of Players: " + this.players.playerCount());
         log("");
     };
 
@@ -73,26 +80,30 @@ var Game = function(id) {
 
     this.dealFirstCards = function() {
         log("dealing first cards");
-        this.dealer.dealCardTo(this.player1);
-        this.dealer.dealCardTo(this.dealer);
-        this.dealer.dealCardTo(this.player1);
-        this.dealer.dealCardTo(this.dealer);
+        var player = this.players.player(0);
+        var dealer = this.dealer;
+        this.dealer.dealCardTo(player);
+        this.dealer.dealCardTo(dealer);
+        this.dealer.dealCardTo(player);
+        this.dealer.dealCardTo(dealer);
     };
 
     // this should really be in a View method - outputting to screen
     this.showFirstCards = function() {
-        var s = "";
         log("showing first cards");
         log("");
+        var player = this.players.player(0);
+        var dealer = this.dealer;
+        var s = "";
 
-        s = this.player1.name;
-        s = s.padEnd(12) + this.player1.hand.showCards() + "    ";
-        s = s.padEnd(12) + "Points: " + this.player1.hand.totalPoints();
+        s = player.name;
+        s = s.padEnd(12) + player.hand.showCards() + "    ";
+        s = s.padEnd(12) + "Points: " + player.hand.totalPoints();
         log(s);
 
-        s = this.dealer.name;
-        s = s.padEnd(12) + this.dealer.hand.showCards() + "    ";
-        s = s.padEnd(12) + "Points: " + this.dealer.hand.totalPoints();
+        s = dealer.name;
+        s = s.padEnd(12) + dealer.hand.showCards() + "    ";
+        s = s.padEnd(12) + "Points: " + dealer.hand.totalPoints();
         log(s);
         log("");
     };

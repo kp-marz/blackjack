@@ -40,7 +40,6 @@ var Hand = function() {
         this.cards = [];        // garbage collection
     };
     
-    
 };
 
 

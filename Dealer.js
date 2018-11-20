@@ -22,6 +22,12 @@ var Dealer = function(name, deck) {
         player.hand.addCard(card);
     };
 
+    this.hit = function() {
+    };
+
+    this.stay = function() {
+    };
+
 };
 
 
