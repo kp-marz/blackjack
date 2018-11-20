@@ -43,7 +43,7 @@ var Game = function(id) {
         this.createGameObjects();
         this.playSingleRound();
         this.showFinalStats();
-        
+
         log("");
         log(this.id + " completed.");
     };
@@ -52,6 +52,7 @@ var Game = function(id) {
 
 var game = new Game("Blackjack Simulator Game");
 game.run();
+
 
 /*
 log("");
