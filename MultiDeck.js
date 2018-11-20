@@ -1,20 +1,20 @@
-// Deck.js
+// MultiDeck.js
 
-var Card = require('./Card.js');
-
-// Spades, Clubs, Diamonds, Hearts
-const suits  = ['S', 'C', 'D', 'H'];
-const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+var Deck = require('./Deck.js');
 
 
-var Deck = function() {
+var MultiDeck = function() {
 
     this.cards = [];
 
-    this.createCards = function() {
-        for (var s = 0; s < suits.length; s++) {
-            for (var v = 0; v < values.length; v++) {
-                var card = new Card(values[v], suits[s]);
+    // called after number of decks is determined
+    this.createDecks = function(numDecks) {
+        this.cards = [];
+        // create decks and add its cards to this
+        for (var i = 0; i < numDecks; i++) {
+            var deck = new Deck();
+            for (var c = 0; c < deck.cardCount(); c++) {
+                var card = deck.card(c);
                 this.cards.push(card);
             }
         }
@@ -38,12 +38,9 @@ var Deck = function() {
             this.cards[i] = this.cards[j];
             this.cards[j] = temp;
         }
-    };
+    };   
 
-    
-    // run when Deck is created
-    this.createCards();
 };
 
 
-module.exports = Deck;
+module.exports = MultiDeck;
