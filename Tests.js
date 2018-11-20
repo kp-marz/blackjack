@@ -1,3 +1,4 @@
-// Game.js
+// Tests.js
+
 
 // var Deck = require('./Deck.js');
