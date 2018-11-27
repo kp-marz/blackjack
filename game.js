@@ -20,4 +20,6 @@ var _players = [new Player('Lock', _startingMoneyAmount),
                 new Player('Oggie', _startingMoneyAmount)];
 //var _dealer = new Dealer('Dealer');
 
+
 console.log(_players[1].split(0,_ante));
+
