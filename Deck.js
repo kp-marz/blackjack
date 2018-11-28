@@ -3,29 +3,34 @@ var Card = require('./Card.js');
 const suits =  ['diamond','heart','club','spade'];
 const values = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
 
-var cards = function(){
-    var cards = [];
-    suits.forEach(function(suit){
-        values.forEach(function(value){
-            var color;
-            if(suit === 'spade' || suit === 'club'){
-                color = 'black';
-            }
-            else{
-                color = 'red';
-            }
+function createDeck() {
+  let deck = []; // local variable
+  for (let suitIdx = 0; suitIdx < suits.length; suitIdx++) { // 4 suits will go through 0-3
+    for (let valueIdx = 0; valueIdx < values.length; valueIdx++) {
+        let card ={
+            suit: suits[suitIdx],
+            value: values[valueIdx]
+        };
+      deck.push(card); // logs/pushes this into the empty deck array
+    }
+  }
+  return deck;
+}
 
-            cards.push(new Card(value, color, suit));
-        });
-    });
-    return cards;
-};
+//Shuffling Cards
+function shuffleDeck(deck) {
+  for (let i = 0; i < deck.length; i++) {
+    let swapIdx = Math.trunc(Math.random() * deck.length);
+    let tmp = deck[swapIdx];
+    deck[swapIdx] = deck[i];
+    deck[i] = tmp;
+  }
+}
 
-function Deck(){
-    this.size = function(){
-        return this.cards.length;
-    },
-    this.cards = cards()
-};
+function getCardString(card) {
+    return card.value + ' of ' + card.suit;
+}
 
-module.exports = Deck;
+deck = createDeck();
+shuffleDeck(deck);
+console.log(deck);
