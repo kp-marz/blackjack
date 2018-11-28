@@ -1,4 +1,6 @@
 var Deck = require('./Deck.js');
+var Player = require('./Players.js');
+
 
 // The Nightmare Before Christmas casino is finally open and Oggie's
 // crew wants to simulate 20 games of black jack.  Each
@@ -20,3 +22,4 @@ var _players = [new Player('Lock', _startingMoneyAmount),
                 new Player('Oggie', _startingMoneyAmount)];
 //var _dealer = new Dealer('Dealer');
 
+console.log(_players[1]);

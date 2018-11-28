@@ -28,4 +28,6 @@ function Deck(){
     this.cards = cards()
 };
 
+console.log(cards);
+
 module.exports = Deck;
