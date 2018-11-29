@@ -27,4 +27,4 @@ function getNextCard(){
 
 let deck = createDeck();
 
-console.log(deck);
+//console.log(deck);
