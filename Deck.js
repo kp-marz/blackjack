@@ -23,8 +23,7 @@ function getCardString(card) {
 function getNextCard(){
     return deck.shift();
 
-}
+console.log(cards);
 
-let deck = createDeck();
+module.exports = Deck;
 
-//console.log(deck);
