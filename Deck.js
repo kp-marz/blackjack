@@ -1,33 +1,29 @@
-var Card = require('./Card.js');
+let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'];
+let values = ['Ace', 'King', 'Queen', 'Jack', 'Ten', 'Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Three', 'Two']
 
-const suits =  ['diamond','heart','club','spade'];
-const values = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
 
-var cards = function(){
-    var cards = [];
-    suits.forEach(function(suit){
-        values.forEach(function(value){
-            var color;
-            if(suit === 'spade' || suit === 'club'){
-                color = 'black';
-            }
-            else{
-                color = 'red';
-            }
+function createDeck() {
+    let deck = [];
+    for (let suitIdx=0; suitIdx < suits.length; suitIdx++) {
+        for (let valueIdx=0; valueIdx < values.length; valueIdx++) {
+            let card={
+                suit: suits[suitIdx],
+                value: values[valueIdx]
+            };
+            deck.push(card);
+        }
+    }
+    return deck;
+}
 
-            cards.push(new Card(value, color, suit));
-        });
-    });
-    return cards;
-};
+function getCardString(card) {
+    return card.value + ' of ' + card.suit;
+}
 
-function Deck(){
-    this.size = function(){
-        return this.cards.length;
-    },
-    this.cards = cards()
-};
+function getNextCard(){
+    return deck.shift();
 
 console.log(cards);
 
 module.exports = Deck;
+
