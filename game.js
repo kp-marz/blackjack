@@ -1,7 +1,6 @@
 var Deck = require('./Deck.js');
 var Player = require('./Players.js');
 
-
 // The Nightmare Before Christmas casino is finally open and Oggie's
 // crew wants to simulate 20 games of black jack.  Each
 // players starts with 200 dollars.  Each game is $15.  If
@@ -22,4 +21,33 @@ var _players = [new Player('Lock', _startingMoneyAmount),
                 new Player('Oggie', _startingMoneyAmount)];
 //var _dealer = new Dealer('Dealer');
 
-console.log(_players[1]);
+console.log("Welcome to Black Jack!")
+    
+    function getStatus() {
+        let playerAmt = [];
+        for (let moneyIdx=0; moneyIdx < _players.length; moneyIdx++)  {
+                let status = {
+                    player: _players[moneyIdx].name,
+                    amount: _players[moneyIdx].money
+                };
+
+                playerAmt.push(status);
+            }
+        return playerAmt;
+        }
+
+function getStatusString(status){
+    return status.player + ' has ' + status.amount;
+};
+
+let playerAmt = getStatus();
+
+let playerStatus = 
+
+console.log(getStatusString(playerAmt[0]));
+console.log(getStatusString(playerAmt[1]));
+console.log(getStatusString(playerAmt[2]));
+console.log(getStatusString(playerAmt[3]));
+
+
+//console.log(_players[1].name + ' has ' + _players[1].money );
