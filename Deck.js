@@ -1,5 +1,5 @@
 var Card = require('./Card.js');
-
+let deck = [];
 const suits =  ['diamond','heart','club','spade'];
 const values = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
 
@@ -25,12 +25,20 @@ function shuffleDeck(deck) {
     deck[swapIdx] = deck[i];
     deck[i] = tmp;
   }
+  return deck;
 }
+
+
+
 
 function getCardString(card) {
     return card.value + ' of ' + card.suit;
 }
 
-deck = createDeck();
-shuffleDeck(deck);
-console.log(deck);
+
+var ranDeck = [];
+for (let i = 0; i < 4; i++) {
+    ranDeck[i] = shuffleDeck(createDeck());
+}
+
+console.log(ranDeck);
