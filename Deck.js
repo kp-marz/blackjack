@@ -39,6 +39,8 @@ function getCardString(card) {
 var ranDeck = [];
 for (let i = 0; i < 4; i++) {
     ranDeck[i] = shuffleDeck(createDeck());
+    ranDeck[0]+ranDeck[1]+ranDeck[2]+ranDeck[3];
 }
+
 
 console.log(ranDeck);
